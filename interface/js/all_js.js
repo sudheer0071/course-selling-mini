@@ -20,7 +20,7 @@ async function signup_user(event){
 
 console.log("username: "+username);
 console.log("password: "+password);
-  const response = await fetch("http://localhost:3000/user/signup",{
+  const response = await fetch("https://cheap-courses.onrender.com/user/signup",{
     method:'POST',
     headers:{
       'Content-Type':'application/json',
@@ -69,7 +69,7 @@ async function signin_user(event){
     }, 2500);
   return; // Stop the function execution if any field is empty
 } 
-  const response = await fetch("http://localhost:3000/user/signin",{
+  const response = await fetch("https://cheap-courses.onrender.com/user/signin",{
     method:'POST',
     headers:{
       'Content-Type':'application/json',
@@ -130,7 +130,7 @@ async function signup_admin(event){
   return; // Stop the function execution if any field is empty
 }
  
-  const response = await fetch("http://localhost:3000/admin/signup",{
+  const response = await fetch("https://cheap-courses.onrender.com/admin/signup",{
     method:'POST',
     headers:{
       'Content-Type':'application/json',
@@ -182,7 +182,7 @@ async function signin_admin(event){
     }, 2500);
   return; // Stop the function execution if any field is empty
 } 
-  const response = await fetch("http://localhost:3000/admin/signin",{
+  const response = await fetch("https://cheap-courses.onrender.com/admin/signin",{
     method:'POST',
     headers:{
       'Content-Type':'application/json',
