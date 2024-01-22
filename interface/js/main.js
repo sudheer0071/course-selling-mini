@@ -119,7 +119,7 @@ else{
 
 async function showCourses(){
   //***************** / http://localhost:3000 *********************
-  const response = await fetch("http://localhost:3000/admin/courses",{
+  const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
     method:'GET',
     headers :{
       'Content-Type':'application/json',
