@@ -9,7 +9,7 @@ const User_token = localStorage.getItem('User_token');
 // }
 
 async function showCourses_user(){
-  const response = await fetch("http://localhost:3000/user/courses",{
+  const response = await fetch("https://cheap-courses.onrender.com/user/courses",{
     method:'GET',
     headers:{
       'Content-Type':'application/json',
@@ -39,7 +39,7 @@ async function showCourses_user(){
   async function purchasedCourses(){
     try {
       
-      const response = await fetch("http://localhost:3000/user/purchasedCourses",{
+      const response = await fetch("https://cheap-courses.onrender.com/user/purchasedCourses",{
         method:'GET',
         headers:{
           'Content-Type':'application/json',
@@ -75,7 +75,7 @@ async function showCourses_user(){
       }
       
       async function buyCourse(courseId){
-        const response = await fetch("http://localhost:3000/user/buycourse",{
+        const response = await fetch("https://cheap-courses.onrender.com/user/buycourse",{
           method:'POST',
           headers:{
             'Content-Type':'application/json',

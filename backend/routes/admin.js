@@ -47,7 +47,7 @@ router.post('/signin', async (req, res) => {
         res.json({message:"User doesn't exist"})
     }
 });    
-
+ 
 router.post('/courses', adminMiddleware, async(req, res) => { 
     // // Implement course creation logic
     const { title, description, price, imageLink } = req.body; 
