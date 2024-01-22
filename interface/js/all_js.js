@@ -44,7 +44,7 @@ console.log("password: "+password);
   document.getElementById("created").innerHTML = `${msg.message}` 
     setTimeout(() => {  
       document.getElementById("created").innerHTML = "" 
-      window.location.href = "user.html"
+      window.location.href = "/user/user.html"
     }, 2500);  
 
   }
@@ -102,7 +102,7 @@ async function signin_user(event){
   document.getElementById("created").innerHTML = `${msg.message}` 
     setTimeout(() => {  
       document.getElementById("created").innerHTML = "" 
-      window.location.href = "user.html"
+      window.location.href = "/user/user.html"
     }, 2500);  
 
   }
@@ -149,16 +149,17 @@ async function signup_admin(event){
     setTimeout(() => {  
       document.getElementById("emptyFeild").innerHTML = "" 
     }, 2500);
-    return
+    return 
     }
     localStorage.setItem('Admin_token', Admin_token);
   document.getElementById("created").innerHTML = `${msg.message}` 
     setTimeout(() => {  
       document.getElementById("created").innerHTML = "" 
-      window.location.href = "admin.html"
+      window.location.href = "/admin/admin.html"    
+      // window.location.href = "/admin/admin.html"
     }, 2500);  
-
-  }
+  
+  }  
   else{
     console.log("error in fetching");
       document.getElementById("created").innerHTML = `
@@ -213,8 +214,9 @@ async function signin_admin(event){
     localStorage.setItem('Admin_token', Admin_token);
   document.getElementById("created").innerHTML = `${msg.message}` 
     setTimeout(() => {  
-      document.getElementById("created").innerHTML = "" 
-      window.location.href = "admin.html"
+      document.getElementById("created").innerHTML = ""  
+      window.location.href = "/interface/admin/admin.html"
+      // window.location.href = "admin/admin.html"
     }, 2500);  
 
   }

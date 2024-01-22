@@ -2,6 +2,7 @@
 
 // const { User_token, signin_user } = require("./all_js.js");
 const User_token = localStorage.getItem('User_token');
+const Admin_token = localStorage.getItem('Admin_token');
 // const User_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1bW15IiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNzA1ODc1MDMzfQ.HKbSJkIhdjfLSJw_Z0JfywidLYeeRCtbAlJ6GTUQmWk"
 
 // async function fetchingToken(){
@@ -117,7 +118,7 @@ else{
 
 
 async function showCourses(){
-  const response = await fetch("http://localhost:3000/admin/courses",{
+  const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
     method:'GET',
     headers :{
       'Content-Type':'application/json',
@@ -159,7 +160,7 @@ async function createdCourse(event){
   return; // Stop the function execution if any field is empty
 }
 
- const response = await fetch("http://localhost:3000/admin/courses",{
+ const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
   method:'POST',
   headers:{
     'Content-Type':'application/json',

@@ -62,7 +62,6 @@ router.post('/courses', adminMiddleware, async(req, res) => {
         }) 
         res.json({ message: 'Course created successfully', courseId: course._id }) 
     }
-    
 });
 
 router.get('/courses', adminMiddleware, async (req, res) => {
