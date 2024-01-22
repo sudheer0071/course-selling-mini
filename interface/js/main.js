@@ -118,7 +118,8 @@ else{
 
 
 async function showCourses(){
-  const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
+  //***************** / http://localhost:3000 *********************
+  const response = await fetch("http://localhost:3000/admin/courses",{
     method:'GET',
     headers :{
       'Content-Type':'application/json',
@@ -159,7 +160,7 @@ async function createdCourse(event){
     }, 2500);
   return; // Stop the function execution if any field is empty
 }
-
+// ************http://localhost:3000****************
  const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
   method:'POST',
   headers:{

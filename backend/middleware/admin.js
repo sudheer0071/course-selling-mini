@@ -9,6 +9,7 @@ async function adminMiddleware(req, res, next) {
     try{
 
         const token = req.headers.authorization
+        console.log(token);
         const decode = jwt.verify(token, secretKey) 
         const username = decode.username
         const password = decode.password
