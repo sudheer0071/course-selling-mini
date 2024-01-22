@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <title>courses</title>
+</head>
+
+<style>
+  
+  body{ 
+    background: rgb(192, 190, 219);
+background: linear-gradient(90deg, rgb(208, 206, 233) 0%, rgb(217, 235, 238) 51%, rgba(166, 215, 224, 0.989) 81%);
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+  }
+
+  .allcourses{
+    background-color: thistle;
+    width: 408px;
+    height: 210px;  
+    text-align: center;  
+    margin: 31px;
+    padding: 7px;
+    border-radius: 7px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+  .purchasedcourses{
+    background-color: rgb(168, 214, 245);
+    width: 408px;
+    height: 210px;  
+    text-align: center;  
+    margin: 31px;
+    padding: 7px;
+    border-radius: 7px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+
+  .btn{  
+ 
+  color: #fff;
+  padding: 15px 25px;
+  background-color: #38D2D2;
+  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+} 
+
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+}
+#purchased{ 
+  position: fixed; 
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    background-color: rgb(154, 248, 154); 
+    padding: 0px;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    z-index: 999;  
+    display: flex;  
+    justify-content: center;
+}
+
+#notpurchased{ 
+  position: fixed; /* Keeps the div fixed relative to the viewport */
+    top: 0; /* Positions the div at the top of the viewport */
+    left: 0; /* Positions the div at the left edge of the viewport */
+    width: 100%; /* Makes the div take the full width of the viewport */
+    background-color: rgb(248, 154, 154); /* Background color */
+    padding: 0px; /* Adds some padding for better readability */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+    z-index: 999; /* Ensures the div appears on top of other elements */
+    display: flex; /* Enables flexbox layout */
+    justify-content: center;
+}
+.headers{
+  font-size: 55px;
+    font-weight: 600;
+    text-align: center;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text
+}
+.main_h1{
+  font-size: 70px;
+  font-weight: 600;
+  text-align: center;
+  background-image: linear-gradient(to left, #5a5664, #5509a1);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.div_btn{
+  display: flex;
+  justify-content: center;
+}
+
+ 
+/* CSS */
+.buycourse {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.buycourse:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.buycourse:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.buycourse:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+} 
+.courses{
+  display: grid;
+  justify-content: center
+}
+</style>
+
+<body>
+  <div id="purchased"  ></div>
+  <div id="notpurchased" ></div>
+  <h1 class="main_h1">Hey user ! welcome back </h1>
+  <h2 class="headers" >All courses</h2>
+  <div class="div_btn">
+    <button class="btn" onclick="showCourses_user()" >View courses</button>
+  </div>
+  <br> 
+  <div class="courses" id="all_courses"></div>
+  <h2 class="headers" >Purchased Courses</h2>
+  <div class="div_btn">
+    <button class="btn" onclick="purchasedCourses()" >View courses</button>
+  </div>
+  <div class="courses" id="purchased_courses"></div>
+  
+ 
+</body>
+
+ <script src="/interface/js/main.js">
+   
+  //  import { User_token } from './all_js.js';
+// const User_token = require("./all_js.js")
+const User_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImR1bW15IiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNzA1ODc1MDMzfQ.HKbSJkIhdjfLSJw_Z0JfywidLYeeRCtbAlJ6GTUQmWk"
+async function showCourses(){
+  const response = await fetch("http://localhost:3000/user/courses",{
+    method:'GET',
+    headers:{
+      'Content-Type':'application/json',
+      'Authentication':User_token
+    }
+  })
+  
+  if (response.ok) {
+     const courses = await response.json()
+     const all_courses = courses.allcourses.map(course => `
+     <div id="bought" class="allcourses">
+    <h3>Course Name: ${course.title}</h3>
+    <p>Description: ${course.description}</p>
+    <h5>Price: ${course.price}</h5>
+    <button onclick="buyCourse('${course._id}')" class="buycourse"> Buy Course </button> 
+  </div> 
+     `).join('')
+     document.getElementById("all_courses").innerHTML = `${all_courses}`
+  }
+  else{
+    console.log("error in fetching");
+  } 
+
+}
+
+async function purchasedCourses(){
+  try {
+    
+    const response = await fetch("http://localhost:3000/user/purchasedCourses",{
+      method:'GET',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization': User_token
+      }
+    })
+    
+  if (response.ok) {
+    const courses = await response.json();
+          const coursesList = courses.allcourses.map(course => `
+          <div class="purchasedcourses allcourses">
+            <h3>Course Name: ${course.title}</h3>
+            <p>Description: ${course.description}</p>
+            <h5>Price: ${course.price}</h5>
+            </div>
+            `).join('');
+            document.getElementById("purchased_courses").innerHTML = `
+            ${coursesList} 
+            `;
+          }
+          else{
+            console.log("error in fetching");
+            document.getElementById("purchased_courses").innerHTML = `
+            <h4>Something went wrong :/ </h4>
+            `
+          }
+        } catch (error) {
+          console.log(error);
+          console.log("something went wrong");
+        }
+
+}
+
+ async function buyCourse(courseId){
+  const response = await fetch("http://localhost:3000/user/buycourse",{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization':User_token
+      },
+      body:JSON.stringify({courseId: courseId})
+    })
+ 
+  const msg = await response.json()
+  if (response.ok) { 
+    const message = msg.message
+    console.log(message);
+    if (message.includes("already")) {
+      console.log("inside if");
+      document.getElementById("notpurchased").innerHTML = `${msg.message}`
+      setTimeout(() => {  
+        document.getElementById("notpurchased").innerHTML = "" 
+      }, 2500);
+    }
+    else{
+      document.getElementById("purchased").innerHTML = `${msg.message}` 
+      setTimeout(() => {  
+        document.getElementById("purchased").innerHTML = "" 
+      }, 2500);
+    }
+} 
+else{
+  console.log("error in fetching");
+            document.getElementById("purchased_courses").innerHTML = `
+            <h4>Something went wrong :/ </h4>
+            `
+}
+
+}
+
+
+</script>
+
+</html>
