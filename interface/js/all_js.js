@@ -44,9 +44,9 @@ console.log("password: "+password);
   document.getElementById("created").innerHTML = `${msg.message}` 
     setTimeout(() => {  
       document.getElementById("created").innerHTML = "" 
-      window.location.href = "/user/user.html"
+      window.location.href = "/interface/user/user.html" 
     }, 2500);  
-
+ 
   }
   else{
     console.log("error in fetching");
@@ -102,7 +102,7 @@ async function signin_user(event){
   document.getElementById("created").innerHTML = `${msg.message}` 
     setTimeout(() => {  
       document.getElementById("created").innerHTML = "" 
-      window.location.href = "/user/user.html"
+      window.location.href = "/interface/user/user.html"
     }, 2500);  
 
   }
