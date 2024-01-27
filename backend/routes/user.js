@@ -30,16 +30,15 @@ router.post('/signin', async (req, res) => {
     const userExists = await User.findOne({username:username})
     const user = await User.findOne({username:username, password:password})
   
-    if (!user) {
-        return res.json({message:"Invalid Credentials"})
+    if (!userExists) {
+            res.json({message:"User doesn't exist"})
      }
-     if (userExists) { 
-          
-             res.json({message:"Fetching details", token: user.token})
-     }
-     else{ 
-         res.json({message:"User doesn't exist"})
-    }
+    else { 
+         if (user) {
+            return res.json({message:"Fetching details", token: user.token})
+        }
+          res.json({message:"Invalid Credentials"})
+         }
 });
 
 router.get('/courses', async (req, res) => {

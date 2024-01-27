@@ -26,27 +26,46 @@ router.post('/signup', async(req, res) => {
     }
 }); 
 
+router.post('/signup', async(req, res) => {
+    // Implement admin signup logic
+    const username = req.body.username;
+    const password = req.body.password
+    
+    const userExists = await Admin.findOne({username:username})
+    if (!userExists) {
+        const token = jwt.sign({username:username, password:password}, secretKey)
+        Admin.create({
+            username,
+            password,
+            token
+        }) 
+        res.json({message:"Admin created successfully", token:token})
+    }
+    else{
+        res.json({message:"Username already exist try something unique"})
+    }
+}); 
+
 router.post('/signin', async (req, res) => {
     // Implement admin signup logic
     const username = req.body.username 
     const password = req.body.password
     
-    const admin = await Admin.findOne({username:username})
-    const credentials = await Admin.findOne({username:username, password:password})
+    const adminExist = await Admin.findOne({username:username})
+    const admin = await Admin.findOne({username:username, password:password})
 
-    if (!credentials) {
-       return res.json({message:"Invalid Credentials"})
+    if (!adminExist) {
+       res.json({message:"Admin doesn't exist :/"})
     }
-    if (admin) { 
-        
-            // if (token) {
-            // }
-            res.json({message:"Fetching details", token: admin.token})
+    else{
+        if (admin) { 
+               return res.json({message:"Fetching details", token: admin.token})
+        }
+        // else{
+            res.json({message:"Invalid credentials"})
+        // }
     }
-    else{ 
-        res.json({message:"User doesn't exist"})
-    }
-});    
+});     
  
 router.post('/courses', adminMiddleware, async(req, res) => { 
     // // Implement course creation logic
