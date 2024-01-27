@@ -49,10 +49,8 @@ router.get('/courses', async (req, res) => {
  
 router.post('/buycourse' , userMiddleware, async (req, res) => {
     // Implement course purchase logic
-    const id = req.body.courseId
-    const token = req.headers.authorization
-    const decoded = jwt.verify(token, secretKey)
-    const username = decoded.username 
+    const id = req.body.courseId 
+    const username = req.username 
    
     const user = await User.findOne({username:username})
 
@@ -72,10 +70,7 @@ router.post('/buycourse' , userMiddleware, async (req, res) => {
  
 router.get('/purchasedCourses', userMiddleware, async(req, res) => {
     // Implement fetching purchased courses logic
-    const token = req.headers.authorization
-    console.log(token);
-    const decoded = jwt.verify(token, secretKey)
-    const username = decoded.username
+    const username = req.username 
 
     const showCourse = await User.findOne({username:username})
     console.log(showCourse);

@@ -14,6 +14,7 @@ async function userMiddleware(req, res, next) {
         const password = decoded.password
     
         if(await User.findOne({username:username, password:password})){
+            req.username = username
             return next()
         }
         else{
