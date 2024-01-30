@@ -57,6 +57,14 @@ async function showCourses_user(){
         <h5>Price: ${course.price}</h5>
         </div>
         `).join('');
+
+        if (courses.allcourses.length == 0) {
+          setTimeout(() => {
+            document.getElementById("notpurchased").innerHTML=""
+          }, 2000);
+          document.getElementById("notpurchased").innerHTML="You haven't bought any coursesyet."
+        }
+
         document.getElementById("purchased_courses").innerHTML = `
         ${coursesList} 
         `;
