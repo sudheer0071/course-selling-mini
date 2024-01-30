@@ -177,57 +177,7 @@ background: linear-gradient(90deg, rgb(208, 206, 233) 0%, rgb(217, 235, 238) 51%
 <div class="content"></div>
 </body>
 
-<script src="/interface/js/all_js.js">
-  
-//   async function signup(event){
-//     event.preventDefault() 
-//     const username = document.getElementById("email").value
-//     const password = document.getElementById("pass").value
-
-//     if (!username || !password) {
-//     alert('Please fill in all fields');
-//     document.getElementById("emptyFeild").innerHTML = `Any feild can't be empty! ` 
-//       setTimeout(() => {  
-//         document.getElementById("emptyFeild").innerHTML = "" 
-//       }, 2500);
-//     return; // Stop the function execution if any field is empty
-//   }
- 
-//   console.log("username: "+username);
-//   console.log("password: "+password);
-//     const response = await fetch("http://localhost:3000/user/signup",{
-//       method:'POST',
-//       headers:{
-//         'Content-Type':'application/json',
-//       },
-//       body:JSON.stringify({username:username, password:password})
-//     })
-//     if (response.ok) {
-//       const msg = await response.json();  
-//       const messagee = msg.message
-//       const token = msg.token
-//       if (messagee.includes("already")) {
-//         document.getElementById("emptyFeild").innerHTML = `${messagee} ` 
-//       setTimeout(() => {  
-//         document.getElementById("emptyFeild").innerHTML = "" 
-//       }, 2500);
-//       return
-//       }
-//     document.getElementById("created").innerHTML = `${msg.message}` 
-//       setTimeout(() => {  
-//         document.getElementById("created").innerHTML = "" 
-//         window.location.href = "/interface/user/user.html"
-//       }, 2500);  
-
-//     }
-//     else{
-//       console.log("error in fetching");
-//         document.getElementById("created").innerHTML = `
-//         <h4>Something went wrong :/ </h4>`
-//         document.getElementById("created").innerHTML = ` `
-//     }
-//   }
-   
+<script src="/interface/js/all_js.js"> 
 </script>
 
 </html>
