@@ -5,27 +5,7 @@ const jwt = require("jsonwebtoken");
 const secretKey = '12345'
 const router = Router(); 
 
-// Admin Routes
-router.post('/signup', async(req, res) => {
-    // Implement admin signup logic
-    const username = req.body.username;
-    const password = req.body.password
-    
-    const userExists = await Admin.findOne({username:username})
-    if (!userExists) {
-        const token = jwt.sign({username:username, password:password}, secretKey)
-        Admin.create({
-            username,
-            password,
-            token
-        }) 
-        res.json({message:"Admin created successfully", token:token})
-    }
-    else{
-        res.json({message:"Username already exist try something unique"})
-    }
-}); 
-
+// Admin Routes 
 router.post('/signup', async(req, res) => {
     // Implement admin signup logic
     const username = req.body.username;

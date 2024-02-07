@@ -28,7 +28,7 @@ console.log("password: "+password);
     body:JSON.stringify({username:username, password:password})
   })
   if (response.ok) {
-    const msg = await response.json();  
+    const msg = await response.json();   
     const messagee = msg.message
     const User_token = msg.token
     localStorage.setItem('User_token', User_token);
@@ -228,5 +228,3 @@ async function signin_admin(event){
   }
 }
 
-
- 
