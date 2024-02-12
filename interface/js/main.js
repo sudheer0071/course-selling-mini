@@ -141,31 +141,39 @@ else{
 
 async function showCourses(){
   //***************** / http://localhost:3000 *********************
-  const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
-    method:'GET',
-    headers :{
-      'Content-Type':'application/json',
-      'Authorization':Admin_token
-    }
-  })
-  if (response.ok) { 
-    const courses = await response.json()
-    const allcourses = courses.courses.map(course =>(`
+  try {
+    
+    const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
+      method:'GET',
+      headers :{
+        'Content-Type':'application/json',
+        'Authorization':Admin_token
+      }
+    })
+    if (response.ok) { 
+      const courses = await response.json()
+      const allcourses = courses.courses.map(course =>(`
     <div class="allcourses">
-      <h3>Course Name: ${course.title}</h3>
-  <p>Description: ${course.description}</p>
-  <h5>Price: ${course.price}</h5>
+    <h3>Course Name: ${course.title}</h3>
+    <p>Description: ${course.description}</p>
+    <h5>Price: ${course.price}</h5>
     </div>
     
-  `)).join('')
-  document.getElementById('all_courses').innerHTML = `${allcourses}`
+    `)).join('')
+    document.getElementById('all_courses').innerHTML = `${allcourses}`
+  }
+  else{
+    console.log("error in fetching");
+    document.getElementById("all_courses").innerHTML = `
+    <h4>Something went wrong :/ </h4>
+    `
+  }
+} catch (error) {
+  document.getElementById("all_courses").innerHTML = `
+  <h4>Something went wrong :/ </h4>
+  `
+  
 }
-else{
-      console.log("error in fetching");
-      document.getElementById("all_courses").innerHTML = `
-      <h4>Something went wrong :/ </h4>
-      `
-     }
 }
 
 async function createdCourse(event){
