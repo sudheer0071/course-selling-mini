@@ -177,56 +177,63 @@ async function showCourses(){
 }
 
 async function createdCourse(event){
- event.preventDefault() 
- const title  = document.getElementById("title").value 
- const description  = document.getElementById("desc").value 
- const price  = document.getElementById("price").value 
-
- if (!title || !description || !price) {
-  alert('Please fill in all fields');
-  document.getElementById("emptyFeild").innerHTML = `Any feild can't be empty! ` 
-    setTimeout(() => {  
-      document.getElementById("emptyFeild").innerHTML = "" 
-    }, 2500);
-  return; // Stop the function execution if any field is empty
-}
-// ************http://localhost:3000****************
- const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
-  method:'POST',
-  headers:{
-    'Content-Type':'application/json',
-    'Authorization':Admin_token
-  },
-  body:JSON.stringify({title:title, description:description, price:price, imageLink:"https://linktoimage.com"})
- })
-  
- if (response.ok) {
-  const msg = await response.json();  
+  try {
+    event.preventDefault() 
+    const title  = document.getElementById("title").value 
+    const description  = document.getElementById("desc").value 
+    const price  = document.getElementById("price").value 
+    
+    if (!title || !description || !price) {
+      alert('Please fill in all fields');
+      document.getElementById("emptyFeild").innerHTML = `Any feild can't be empty! ` 
+      setTimeout(() => {  
+        document.getElementById("emptyFeild").innerHTML = "" 
+      }, 2500);
+      return; // Stop the function execution if any field is empty
+    }
+    // ************http://localhost:3000****************
+    const response = await fetch("https://cheap-courses.onrender.com/admin/courses",{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization':Admin_token
+      },
+      body:JSON.stringify({title:title, description:description, price:price, imageLink:"https://linktoimage.com"})
+    })
+    
+    if (response.ok) {
+      const msg = await response.json();  
   document.getElementById("created").innerHTML = `${msg.message}` 
-    setTimeout(() => {  
-      document.getElementById("created").innerHTML = "" 
-    }, 2500);
-    document.getElementById("create-course").innerHTML=''
- }
- else{
-      console.log("error in fetching");
+  setTimeout(() => {  
+    document.getElementById("created").innerHTML = "" 
+  }, 2500);
+  document.getElementById("create-course").innerHTML=''
+}
+else{
+  console.log("error in fetching");
+  document.getElementById("created").innerHTML = `
+  <h4>Something went wrong :/ </h4>
+      `
+    }
+    
+  } catch (error) {
       document.getElementById("created").innerHTML = `
       <h4>Something went wrong :/ </h4>
-      `
-     }
-}
-
-function creatingCourse() {
-const formContainer = document.getElementById("create-course");
-formContainer.innerHTML = `
-  <form class="course-create">
+          `
+    }
+  }
+  
+  function creatingCourse() {
+    const formContainer = document.getElementById("create-course");
+    formContainer.innerHTML = `
+    <form class="course-create">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Name of course</label>
-      <input type="text" class="form-control form-label" id="title" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1" class="form-label">Name of course</label>
+    <input type="text" class="form-control form-label" id="title" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Description</label>
-      <input type="text" class="form-control form-label" id="desc">
+    <label for="exampleInputPassword1" class="form-label">Description</label>
+    <input type="text" class="form-control form-label" id="desc">
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword2" class="form-label">Price</label>
