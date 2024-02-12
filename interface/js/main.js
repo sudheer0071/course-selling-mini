@@ -55,6 +55,7 @@ async function showCourses_user(){
         <h3>Course Name: ${course.title}</h3>
         <p>Description: ${course.description}</p>
         <h5>Price: ${course.price}</h5>
+        
         </div>
         `).join('');
 
