@@ -10,17 +10,19 @@ const Admin_token = localStorage.getItem('Admin_token');
 // }
 
 async function showCourses_user(){
-  const response = await fetch("https://cheap-courses.onrender.com/user/courses",{
-    method:'GET',
-    headers:{
-      'Content-Type':'application/json',
-      'Authentication':User_token
-    }
-  })
+  try {
+    
+    const response = await fetch("https://cheap-courses.onrender.com/user/courses",{
+      method:'GET',
+      headers:{
+        'Content-Type':'application/json',
+        'Authentication':User_token
+      }
+    })
   
-  if (response.ok) {
-    const courses = await response.json()
-     const all_courses = courses.allcourses.map(course => `
+    if (response.ok) {
+      const courses = await response.json()
+      const all_courses = courses.allcourses.map(course => `
      <div id="bought" class="allcourses">
      <h3>Course Name: ${course.title}</h3>
      <p>Description: ${course.description}</p>
@@ -35,8 +37,12 @@ async function showCourses_user(){
       console.log("error in fetching");
     } 
     
+  } catch (error) {
+    document.getElementById("purchased_courses").innerHTML = `
+    <h4>Something went wrong :/ </h4>`
   }
-
+  }
+  
   async function purchasedCourses(){
     try {
       
@@ -55,7 +61,7 @@ async function showCourses_user(){
         <h3>Course Name: ${course.title}</h3>
         <p>Description: ${course.description}</p>
         <h5>Price: ${course.price}</h5>
-        
+
         </div>
         `).join('');
 
