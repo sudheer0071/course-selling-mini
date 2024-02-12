@@ -91,16 +91,18 @@ async function showCourses_user(){
       }
       
       async function buyCourse(courseId){
-        const response = await fetch("https://cheap-courses.onrender.com/user/buycourse",{
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json',
-            'Authorization':User_token
-          },
+        try {
+          
+          const response = await fetch("https://cheap-courses.onrender.com/user/buycourse",{
+            method:'POST',
+            headers:{
+              'Content-Type':'application/json',
+              'Authorization':User_token
+            },
       body:JSON.stringify({courseId: courseId})
     })
  
-  const msg = await response.json()
+    const msg = await response.json()
   if (response.ok) { 
     const message = msg.message
     console.log(message);
@@ -117,14 +119,19 @@ async function showCourses_user(){
         document.getElementById("purchased").innerHTML = "" 
       }, 2500);
     }
-} 
+  } 
 else{
   console.log("error in fetching");
-            document.getElementById("purchased_courses").innerHTML = `
-            <h4>Something went wrong :/ </h4>
-            `
+  document.getElementById("purchased_courses").innerHTML = `
+  <h4>Something went wrong :/ </h4>
+  `
 }
 
+} catch (error) {
+  document.getElementById("purchased_courses").innerHTML = `
+  <h4>Something went wrong :/ </h4>
+  `
+}
 }
 
 
